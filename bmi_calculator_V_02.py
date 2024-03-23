@@ -69,25 +69,52 @@ height_title = tk.Label(text = "Ihre Körpergröße in Metern: ",
 height_entry = tk.Entry(font = ("Calibri", 14),
                         width = 25
                         )
+# function to calculate
+def output_calc():
+    input_weight = float(weight_entry.get())
+    input_height = float(height_entry.get())
+    middle = input_weight / input_height ** 2
+    output_number = round(middle, 2)
+
+    if output_number < 18.5:
+        output = "Untergewicht"
+        output_field.config(text= output)
+    elif output_number >= 18.5 and output_number <= 24.9:
+        output ="Normalgewicht"
+        output_field.config(text= output)
+    elif output_number >= 25 and output_number <= 34.9:
+        output = "Übergewicht"
+        output_field.config(text= output)
+    else:
+        output = "Starkes oder extremes Übergewicht"
+        output_field.config(text= output)
+
 
 converter_button = tk.Button(text = "BMI errechnen",
-                             font = ("Calibri", 14)
+                             font = ("Calibri", 14),
+                             command = output_calc
                              )
 
-output = "Das Ergebnis"
+output = ""
+output_number = ""
 
 output_field = tk.Label(text = output,
                         font = ("Calibri", 14),
                         height = 2,
-                        width = 15,
+                        width = 50,
                         bd = 2,
                         relief = "solid",
                         bg = "#dedede"
                         )
 
-# calculating button
-
-
+hinweis_field = tk.Label(text="Hinweis: Der BMI dient lediglich einer Einschätzung,\n"
+                              "hat aber keinen Anspruch auf Richtigkeit.\n"
+                              "Sind Sie beispielsweise sehr muskolös, kann fälsch- \n"
+                              "lich eine Einschätzung in die Kategorie 'Übergewicht' erfolgen.",
+                         bg = "#c2c2c2",
+                         font = ("Calibri", 14),
+                         height = 4,
+                         width = 50)
 
 title.grid(row=0, column=0, columnspan=4)
 spacer.grid(row=1, column=0, columnspan=4)
@@ -98,6 +125,7 @@ height_entry.grid(row=3, column=2, columnspan=2)
 spacer_1.grid(row=4, column=0, columnspan=4)
 converter_button.grid(row=5, column =1, columnspan=2)
 spacer_2.grid(row=6, column=0, columnspan=4)
-output_field.grid(row=7, column=1, columnspan=2)
+output_field.grid(row=7, column=0, columnspan=4)
+hinweis_field.grid(row=8, column=0, columnspan=4)
 
 window.mainloop()
