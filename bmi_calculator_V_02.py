@@ -44,6 +44,10 @@ spacer_1 = tk.Label(bg = "#dedede",
                    height = 1,
                    width = 72)
 
+spacer_2 = tk.Label(bg = "#dedede",
+                    height = 1,
+                    width = 72)
+
 # title and input fields
 
 weight_title = tk.Label(text = "Ihr Körpergewicht in Kilogramm: ",
@@ -66,6 +70,21 @@ height_entry = tk.Entry(font = ("Calibri", 14),
                         width = 25
                         )
 
+converter_button = tk.Button(text = "BMI errechnen",
+                             font = ("Calibri", 14)
+                             )
+
+output = "Das Ergebnis"
+
+output_field = tk.Label(text = output,
+                        font = ("Calibri", 14),
+                        height = 2,
+                        width = 15,
+                        bd = 2,
+                        relief = "solid",
+                        bg = "#dedede"
+                        )
+
 # calculating button
 
 
@@ -77,5 +96,8 @@ weight_entry.grid(row=2, column=2, columnspan=2)
 height_title.grid(row=3, column=0, columnspan=2)
 height_entry.grid(row=3, column=2, columnspan=2)
 spacer_1.grid(row=4, column=0, columnspan=4)
+converter_button.grid(row=5, column =1, columnspan=2)
+spacer_2.grid(row=6, column=0, columnspan=4)
+output_field.grid(row=7, column=1, columnspan=2)
 
 window.mainloop()
