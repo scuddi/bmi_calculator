@@ -1,7 +1,15 @@
-# ToDo: Build the gui for the BMI-calculator
+import customtkinter
 
-import tkinter as tk
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("dark-blue")
 
+root = customtkinter.CTk()
+
+
+root.mainloop()
+
+
+""""
 window = tk.Tk()
 
 title = tk.Label(text = "Wilkommen in meinem BMI-Rechner.",
@@ -14,12 +22,12 @@ title = tk.Label(text = "Wilkommen in meinem BMI-Rechner.",
 # spacers to make gui look less crowded
 
 spacer = tk.Label(bg = "#dedede",
-                   height = 1,
-                   width = 72)
+                  height = 1,
+                  width = 72)
 
 spacer_1 = tk.Label(bg = "#dedede",
-                   height = 1,
-                   width = 72)
+                    height = 1,
+                    width = 72)
 
 spacer_2 = tk.Label(bg = "#dedede",
                     height = 1,
@@ -106,3 +114,5 @@ output_field.grid(row=7, column=0, columnspan=4)
 hinweis_field.grid(row=8, column=0, columnspan=4)
 
 window.mainloop()
+
+"""
