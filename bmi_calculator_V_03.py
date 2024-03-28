@@ -59,21 +59,3 @@ output_field.grid(row = 4, column = 0, columnspan = 2, padx = 10, pady = 10)
 
 
 app.mainloop()
-
-
-"""
-
-# spacers to make gui look less crowded
-
-spacer = tk.Label(bg = "#dedede",
-                  height = 1,
-                  width = 72)
-
-spacer_1 = tk.Label(bg = "#dedede",
-                    height = 1,
-                    width = 72)
-
-spacer_2 = tk.Label(bg = "#dedede",
-                    height = 1,
-                    width = 72)
-"""
