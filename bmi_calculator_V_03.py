@@ -3,10 +3,15 @@ import customtkinter
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
 
-root = customtkinter.CTk()
+app = customtkinter.CTk()
+
+app.geometry("600x400")
+
+app.title("Wilkommen in meinem BMI-Rechner.")
 
 
-root.mainloop()
+
+app.mainloop()
 
 
 """"
