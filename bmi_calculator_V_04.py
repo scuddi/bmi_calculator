@@ -5,7 +5,7 @@ customtkinter.set_default_color_theme("dark-blue")
 
 app = customtkinter.CTk()
 
-app.geometry("430x340")
+app.geometry("430x400")
 
 app.title("Wilkommen in meinem BMI-Rechner.")
 
@@ -17,7 +17,8 @@ hinweis_label = customtkinter.CTkLabel(master = frame1, text = "Hinweis: Der BMI
                                                             "lich eine Einschätzung in die Kategorie 'Übergewicht' erfolgen.")
 
 frame2 = customtkinter.CTkFrame(master=app)
-
+frame22 = customtkinter.CTkFrame(master=frame2, border_color="#ad3f37", border_width=1)
+hinweis2_label = customtkinter.CTkLabel(master=frame22, text = "Bitte keine Kommata eingeben")
 weight_title = customtkinter.CTkLabel(master=frame2, text = "Ihr Körpergewicht in Kilogramm: ", )
 weight_entry = customtkinter.CTkEntry(master=frame2, placeholder_text = "z.B.: 90.6")
 
@@ -60,12 +61,14 @@ converter_button = customtkinter.CTkButton(app,
 frame1.grid(row = 0, column = 0, columnspan = 2, padx = 20, pady = 10)
 hinweis_label.grid(row = 0, column = 0, columnspan = 2, padx = 20, pady = 10)
 frame2.grid(row = 1, column = 1, columnspan = 2, padx = 20, pady = 5)
-weight_title.grid(row = 1, column = 0, padx = 10, pady = 10)
-weight_entry.grid(row = 1, column = 1, padx = 20, pady = 10)
-height_title.grid(row = 2, column = 0, padx = 10, pady = 10)
-height_entry.grid(row = 2, column = 1, padx = 20, pady = 10)
-converter_button.grid (row = 3, column = 0, columnspan = 2, padx = 10, pady = 10)
-frame3.grid(row = 4, column = 0, columnspan = 2, padx = 20, pady = 10)
-output_field.grid(row = 4, column = 1, padx = 20, pady = 10)
+frame22.grid(row = 1, column = 0, columnspan = 2, padx = 20, pady = 5)
+hinweis2_label.grid(row = 1, column = 0, columnspan = 2, padx = 10, pady = 10)
+weight_title.grid(row = 2, column = 0, padx = 10, pady = 10)
+weight_entry.grid(row = 2, column = 1, padx = 20, pady = 10)
+height_title.grid(row = 3, column = 0, padx = 10, pady = 10)
+height_entry.grid(row = 3, column = 1, padx = 20, pady = 10)
+converter_button.grid (row = 4, column = 0, columnspan = 2, padx = 10, pady = 10)
+frame3.grid(row = 5, column = 0, columnspan = 2, padx = 20, pady = 10)
+output_field.grid(row = 5, column = 1, padx = 20, pady = 10)
 
 app.mainloop()
