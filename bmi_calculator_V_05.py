@@ -18,6 +18,8 @@ hinweis_label = customtkinter.CTkLabel(master = frame1, text = "Hinweis: Der BMI
                                                                "Sind Sie beispielsweise sehr muskolös, kann fälsch- \n"
                                                                "lich eine Einschätzung in die Kategorie 'Übergewicht' erfolgen.")
 
+# basic fields for needed input for bmi
+
 frame2 = customtkinter.CTkFrame(master=app)
 weight_title = customtkinter.CTkLabel(master=frame2, text = "Ihr Körpergewicht in Kilogramm: ", )
 weight_entry = customtkinter.CTkEntry(master=frame2, placeholder_text = "z.B.: 90.6")

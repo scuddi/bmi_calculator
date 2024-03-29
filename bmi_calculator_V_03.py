@@ -1,5 +1,7 @@
 import customtkinter
 
+# general settings for appearance of gui
+
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
 
@@ -14,17 +16,29 @@ hinweis_label = customtkinter.CTkLabel(master = app, text = "Hinweis: Der BMI di
                                                    "Sind Sie beispielsweise sehr muskolös, kann fälsch- \n"
                                                    "lich eine Einschätzung in die Kategorie 'Übergewicht' erfolgen.")
 
+# basic fields for needed input for bmi
+
 weight_title = customtkinter.CTkLabel(app, text = "Ihr Körpergewicht in Kilogramm: ", )
 weight_entry = customtkinter.CTkEntry(app, placeholder_text = "z.B.: 90.6")
 
 height_title = customtkinter.CTkLabel(app, text = "Ihre Körpergröße in Metern: ")
 height_entry = customtkinter.CTkEntry(app, placeholder_text = "z.B.: 1.85")
 
+# function behind button press to calculate bmi
+
 def output_calc():
+
+    # getting input from input fields and transforming them to floats
+
     input_weight = float(weight_entry.get())
     input_height = float(height_entry.get())
+
+    # math logic of bmi
+
     middle = input_weight / input_height ** 2
     output_number = round(middle, 2)
+
+    # determining result
 
     if output_number < 18.5:
         output = "Untergewicht"
@@ -39,8 +53,12 @@ def output_calc():
         output = "Starkes oder extremes Übergewicht"
         output_field.configure(text= output)
 
+# defining variables for the coming modules
+
 output = ""
 output_number = ""
+
+# output and button
 
 output_field = customtkinter.CTkLabel(app, text = output)
 
@@ -48,6 +66,8 @@ converter_button = customtkinter.CTkButton(app,
                                            text = "BMI berechnen",
                                            command = output_calc,
                                            hover_color = "#447ec9")
+
+# layout for all the modules
 
 hinweis_label.grid(row = 0, column = 0, columnspan = 2, padx = 5, pady = 5, sticky="nsew")
 weight_title.grid(row = 1, column = 0, padx = 10, pady = 10)

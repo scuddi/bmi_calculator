@@ -1,5 +1,7 @@
 import customtkinter
 
+# general settings for appearance of gui
+
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
 
@@ -16,6 +18,8 @@ hinweis_label = customtkinter.CTkLabel(master = frame1, text = "Hinweis: Der BMI
                                                             "Sind Sie beispielsweise sehr muskolös, kann fälsch- \n"
                                                             "lich eine Einschätzung in die Kategorie 'Übergewicht' erfolgen.")
 
+# basic fields for needed input for bmi
+
 frame2 = customtkinter.CTkFrame(master=app)
 frame22 = customtkinter.CTkFrame(master=frame2, border_color="#ad3f37", border_width=1)
 hinweis2_label = customtkinter.CTkLabel(master=frame22, text = "Bitte keine Kommata eingeben")
@@ -25,11 +29,20 @@ weight_entry = customtkinter.CTkEntry(master=frame2, placeholder_text = "z.B.: 9
 height_title = customtkinter.CTkLabel(master=frame2, text = "Ihre Körpergröße in Metern: ")
 height_entry = customtkinter.CTkEntry(master=frame2, placeholder_text = "z.B.: 1.85")
 
+# function behind button press to calculate bmi
 def output_calc():
+
+    # getting input from input fields and transforming them to floats
+
     input_weight = float(weight_entry.get())
     input_height = float(height_entry.get())
+
+    # math logic of bmi
+
     middle = input_weight / input_height ** 2
     output_number = round(middle, 2)
+
+    # determining result
 
     if output_number < 18.5:
         output = "Untergewicht"
@@ -44,8 +57,12 @@ def output_calc():
         output = "Starkes oder extremes Übergewicht"
         output_field.configure(text= output)
 
+# defining variables for the coming modules
+
 output = "Hier erscheint Ihr Ergebnis"
 output_number = ""
+
+# output and button
 
 frame3 = customtkinter.CTkFrame(app, fg_color = "#383838")
 output_field = customtkinter.CTkLabel(frame3, text = output, width = 340, font = ("", 15))
@@ -57,6 +74,8 @@ converter_button = customtkinter.CTkButton(app,
                                            height = 40,
                                            width = 130,
                                            font = ("", 15))
+
+# layout for all the modules
 
 frame1.grid(row = 0, column = 0, columnspan = 2, padx = 20, pady = 10)
 hinweis_label.grid(row = 0, column = 0, columnspan = 2, padx = 20, pady = 10)
