@@ -5,11 +5,11 @@ customtkinter.set_default_color_theme("dark-blue")
 
 app = customtkinter.CTk()
 
-app.geometry("430x320")
+app.geometry("430x340")
 
 app.title("Wilkommen in meinem BMI-Rechner.")
 
-frame1 = customtkinter.CTkFrame(master=app)
+frame1 = customtkinter.CTkFrame(master=app, fg_color="#ad3f37", border_color="#240d0c", border_width=2)
 
 hinweis_label = customtkinter.CTkLabel(master = frame1, text = "Hinweis: Der BMI dient lediglich einer Einschätzung,\n"
                                                             "hat aber keinen Anspruch auf Richtigkeit.\n"
@@ -43,16 +43,19 @@ def output_calc():
         output = "Starkes oder extremes Übergewicht"
         output_field.configure(text= output)
 
-output = ""
+output = "Hier erscheint Ihr Ergebnis"
 output_number = ""
 
-frame3 = customtkinter.CTkFrame(app)
-output_field = customtkinter.CTkLabel(frame3, text = output)
+frame3 = customtkinter.CTkFrame(app, fg_color = "#383838")
+output_field = customtkinter.CTkLabel(frame3, text = output, width = 340, font = ("", 15))
 
 converter_button = customtkinter.CTkButton(app,
                                            text = "BMI berechnen",
                                            command = output_calc,
-                                           hover_color = "#447ec9")
+                                           hover_color = "#447ec9",
+                                           height = 40,
+                                           width = 130,
+                                           font = ("", 15))
 
 frame1.grid(row = 0, column = 0, columnspan = 2, padx = 20, pady = 10)
 hinweis_label.grid(row = 0, column = 0, columnspan = 2, padx = 20, pady = 10)
